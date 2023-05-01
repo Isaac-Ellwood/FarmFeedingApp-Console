@@ -8,10 +8,17 @@ namespace FarmFeedingApp
 {
     class LivestockHolder
     {
+        // Attributes
+        private string species;
+        private string breed;
+        private string ID;
         
-        public LivestockHolder()
+        // Constructs a LivestockHolder object and assigns attributes
+        public LivestockHolder(string species, string breed, string ID)
         {
-
+            this.species = species;
+            this.breed = breed;
+            this.ID = ID;
         }
     }
 }
