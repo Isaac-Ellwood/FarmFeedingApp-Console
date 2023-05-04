@@ -8,9 +8,11 @@ namespace FarmFeedingApp
         {
             // Creates livestock manager
             LivestockManager livestockManager = new LivestockManager();
-            Console.WriteLine("Hello World!");
             
-            Console.WriteLine($"{livestockManager.BreedsList("Sheep")[9]}");
+            // Serialises and saves save data
+            livestockManager.SerialiseSaveData();
+
+            Console.WriteLine("Hello World!");
         }
     }
 }
