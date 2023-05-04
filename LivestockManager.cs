@@ -20,8 +20,8 @@ namespace FarmFeedingApp
         // Attributes
         List<LivestockHolder> livestockHolders = new List<LivestockHolder>();
 
-        List<string> breedList = new List<string>();
         List<string> speciesList = new List<string>();
+        List<string> breedList = new List<string>();
 
         // Constructs a Livestock Manager object
         public LivestockManager()
@@ -29,7 +29,31 @@ namespace FarmFeedingApp
             
         }
 
-        // 
+        // Returns species list
+        public List<string> GetSpeciesList()
+        {
+            return speciesList;
+        }
+
+        // Sets species list
+        public void SetSpeciesList(List<string> speciesList)
+        {
+            this.speciesList = speciesList;
+        }
+        
+        // Returns list of breed list
+        public List<string> GetBreedList()
+        {
+            return breedList;
+        }
+
+        // Sets breed list
+        public void SetBreedList(List<string> breedList)
+        {
+            this.breedList = breedList;
+        }
+
+        // Serialises and saves save data
         public void SerialiseSaveData()
         {
             // Declares new SaveData and sets it
