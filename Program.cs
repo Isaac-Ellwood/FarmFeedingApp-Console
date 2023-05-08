@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
 
 namespace FarmFeedingApp
 {
@@ -10,20 +12,14 @@ namespace FarmFeedingApp
             // Creates livestock manager
             LivestockManager livestockManager = new LivestockManager();
 
-            // Sets lists with test data
-            List<string> species = new List<string>();
-            List<string> breeds = new List<string>();
-            for (int i = 0; i < 5; i++)
-            {
-                species.Add("s");
-                breeds.Add("b");
-            }
-
-            livestockManager.SetSpeciesList(species);
-            livestockManager.SetBreedList(breeds);
-
             // Serialises and saves save data
             livestockManager.SerialiseSaveData();
+
+            // Test previously saved data
+            int sIndex = Int32.Parse(Console.ReadLine());
+            int bIndex = Int32.Parse(Console.ReadLine());
+            Console.WriteLine(livestockManager.GetSpeciesList()[sIndex]);
+            Console.WriteLine(livestockManager.GetBreedsList()[sIndex][bIndex]);
 
             Console.WriteLine("Hello World!");
         }

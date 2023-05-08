@@ -8,25 +8,51 @@ using System.Text.Json;
 
 namespace FarmFeedingApp
 {
-    public class SaveData
-    {
-        // Attributes (things to save between sessions)
-        public List<string> sList { get; set; }
-        public List<string> bList { get; set; }
-    }
-
     class LivestockManager
     {
         // Attributes
         List<LivestockHolder> livestockHolders = new List<LivestockHolder>();
 
         List<string> speciesList = new List<string>();
-        List<string> breedList = new List<string>();
+        List<List<string>> breedsList = new List<List<string>>();
 
         // Constructs a Livestock Manager object
         public LivestockManager()
         {
-            
+            // Either deserialises save data or sets data to defaults
+            try
+            {
+                // Deserialises Save Data
+                string fileName = "SaveData.json";
+                string jsonString = File.ReadAllText(fileName);
+                SaveData saveData = JsonSerializer.Deserialize<SaveData>(jsonString)!;
+
+                speciesList = saveData.sList;
+                breedsList = saveData.bList;
+            }
+            catch
+            {
+                // Sets lists with default data
+                speciesList = new List<string>()
+                {
+                    "Cows",
+                    "Sheep"
+                };
+
+                breedsList = new List<List<string>>()
+                {
+                    new List<string>()
+                    {
+                        "Cow 1",
+                        "Cow 2"
+                    },
+                    new List<string>()
+                    {
+                        "Sheep 1",
+                        "Sheep 2"
+                    }
+                };
+            }
         }
 
         // Returns species list
@@ -42,15 +68,15 @@ namespace FarmFeedingApp
         }
         
         // Returns list of breed list
-        public List<string> GetBreedList()
+        public List<List<string>> GetBreedsList()
         {
-            return breedList;
+            return breedsList;
         }
 
         // Sets breed list
-        public void SetBreedList(List<string> breedList)
+        public void SetBreedsList(List<List<string>> breedsList)
         {
-            this.breedList = breedList;
+            this.breedsList = breedsList;
         }
 
         // Serialises and saves save data
@@ -60,7 +86,7 @@ namespace FarmFeedingApp
             var saveData = new SaveData
             {
                 sList = speciesList,
-                bList = breedList
+                bList = breedsList
             };
 
             // Serialises data and saves to \bin\Debug\net5.0
