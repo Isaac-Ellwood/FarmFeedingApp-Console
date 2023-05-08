@@ -11,5 +11,7 @@ namespace FarmFeedingApp
         // Attributes (things to save between sessions)
         public List<string> sList { get; set; }
         public List<List<string>> bList { get; set; }
+        List<LivestockHolder> lHolders = new List<LivestockHolder>();
+        public LivestockHolder lHolders { get; set; }
     }
 }

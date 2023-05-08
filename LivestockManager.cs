@@ -86,7 +86,8 @@ namespace FarmFeedingApp
             var saveData = new SaveData
             {
                 sList = speciesList,
-                bList = breedsList
+                bList = breedsList,
+                lHolders = livestockHolders
             };
 
             // Serialises data and saves to \bin\Debug\net5.0
