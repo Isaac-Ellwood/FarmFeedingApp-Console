@@ -35,17 +35,26 @@ namespace FarmFeedingApp
                 // Sets lists with default data
                 speciesList = new List<string>()
                 {
-                    "Cows",
+                    "Cows (dairy)",
+                    "Cows (beef)",
                     "Sheep"
                 };
 
                 breedsList = new List<List<string>>()
                 {
+                    // Cows (dairy) breeds
                     new List<string>()
                     {
                         "Cow 1",
                         "Cow 2"
                     },
+                    // Cows (beef) breeds
+                    new List<string>()
+                    {
+                        "Cow 1",
+                        "Cow 2"
+                    },
+                    // Sheep breeds
                     new List<string>()
                     {
                         "Sheep 1",
@@ -53,6 +62,12 @@ namespace FarmFeedingApp
                     }
                 };
             }
+        }
+
+        // Adds a livestock holder into livestockHolders list
+        public void AddLivestockHolder(LivestockHolder livestockHolder)
+        {
+            livestockHolders.Add(livestockHolder);
         }
 
         // Returns species list
