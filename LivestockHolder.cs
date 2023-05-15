@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FarmFeedingApp
 {
-    class LivestockHolder
+    public class LivestockHolder
     {
         // Attributes
         private string species;
