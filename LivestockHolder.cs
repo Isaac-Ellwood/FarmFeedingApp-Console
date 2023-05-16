@@ -9,13 +9,14 @@ namespace FarmFeedingApp
     public class LivestockHolder
     {
         // Attributes
-        private int species;
-        private int breed;
-        private string ID;
-        private List<DateTime> dates = new List<DateTime>();
-        private List<int> foodQuantities = new List<int>();
+        public int species;
+        public int breed;
+        public string ID;
+        public List<int> foodQuantity = new List<int>();
+        public List<int> foodType = new List<int>();
+        public List<DateTime> dates = new List<DateTime>();
 
-        
+
         // Constructs a LivestockHolder object and assigns attributes
         public LivestockHolder(int species, int breed, string ID)
         {

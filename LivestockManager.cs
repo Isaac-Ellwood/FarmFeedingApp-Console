@@ -13,6 +13,8 @@ namespace FarmFeedingApp
         // Attributes
         List<LivestockHolder> livestockHolders = new List<LivestockHolder>();
 
+        List<string> foods = new List<string>();
+        List<float> foodPrices = new List<float>();
         List<string> speciesList = new List<string>();
         List<List<string>> breedsList = new List<List<string>>();
 
@@ -27,8 +29,10 @@ namespace FarmFeedingApp
                 string jsonString = File.ReadAllText(fileName);
                 SaveData saveData = JsonSerializer.Deserialize<SaveData>(jsonString)!;
 
+                // Sets lists with deserialised data
                 speciesList = saveData.sList;
                 breedsList = saveData.bList;
+                livestockHolders = saveData.lHolders;
             }
             catch
             {
@@ -97,12 +101,54 @@ namespace FarmFeedingApp
         // Serialises and saves save data
         public void SerialiseSaveData()
         {
+            // Sorts livestockHolders list into a serialisable format
+
+            // Makes lots of lists
+            List<int> livestockHoldersSpecies = new List<int>();
+            List<int> livestockHoldersBreed = new List<int>();
+            List<string> livestockHoldersID = new List<string>();
+            // 2d lists
+            List<List<float>> foodQuantityListList = new List<List<float>>();
+            List<List<float>> foodTypeListList = new List<List<float>>();
+            List<List<DateTime>> datesListList = new List<List<DateTime>>();
+
+            for (int i = 0; i < livestockHolders.Count; i++)
+            {
+                // Adds livestock data to lists
+                livestockHoldersSpecies.Add(livestockHolders[i].species);
+                livestockHoldersBreed.Add(livestockHolders[i].breed);
+                livestockHoldersID.Add(livestockHolders[i].ID);
+
+                // Adds livestock data to 2d lists
+                for (int listIndex = 0; listIndex < livestockHolders[i].foodQuantity.Count; listIndex++)
+                {
+                    foodQuantityListList[i][listIndex] = livestockHolders[i].foodQuantity[listIndex];
+                }
+                
+                for (int listIndex = 0; listIndex < livestockHolders[i].foodType.Count; listIndex++)
+                {
+                    foodTypeListList[i][listIndex] = livestockHolders[i].foodType[listIndex];
+                }
+                
+                for (int listIndex = 0; listIndex < livestockHolders[i].dates.Count; listIndex++)
+                {
+                    datesListList[i][listIndex] = livestockHolders[i].dates[listIndex];
+                }
+            }
+
             // Declares new SaveData and sets it
             var saveData = new SaveData
             {
+                fList = foods,
+                fPriceList = foodPrices,
                 sList = speciesList,
                 bList = breedsList,
-                lHolders = livestockHolders
+                lHoldersSpecies = livestockHoldersSpecies,
+                lHoldersBreed,
+                lHoldersID,
+                fQuantityListList,
+                fTypeListList,
+                fDateListList
             };
 
             // Serialises data and saves to \bin\Debug\net5.0

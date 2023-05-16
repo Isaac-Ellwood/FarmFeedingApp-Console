@@ -9,8 +9,19 @@ namespace FarmFeedingApp
     public class SaveData
     {
         // Attributes (things to save between sessions)
+        public List<string> fList { get; set; }
+        public List<float> fPriceList { get; set; }
         public List<string> sList { get; set; }
         public List<List<string>> bList { get; set; }
         public List<LivestockHolder> lHolders { get; set; }
+
+        // LivestockHolders data
+        public List<int> lHoldersSpecies { get; set; }
+        public List<int> lHoldersBreed { get; set; }
+        public List<string> lHoldersID { get; set; }
+        // 2D lists
+        public List<List<float>> fQuantityListList { get; set; }
+        public List<List<float>> fTypeListList { get; set; }
+        public List<List<DateTime>> fDateListList { get; set; }
     }
 }

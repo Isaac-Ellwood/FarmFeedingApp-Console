@@ -12,9 +12,6 @@ namespace FarmFeedingApp
             // Creates livestock manager
             LivestockManager livestockManager = new LivestockManager();
 
-            // Serialises and saves save data
-            livestockManager.SerialiseSaveData();
-
             // Test previously saved data
             //int sIndex = Int32.Parse(Console.ReadLine());
             //int bIndex = Int32.Parse(Console.ReadLine());
@@ -28,6 +25,14 @@ namespace FarmFeedingApp
             LivestockHolder livestockHolder = new LivestockHolder(species, breed, ID);
 
             livestockManager.AddLivestockHolder(livestockHolder);
+            
+            ID = "0000002";
+            LivestockHolder livestockHolder2 = new LivestockHolder(species, breed, ID);
+
+            livestockManager.AddLivestockHolder(livestockHolder);
+
+            // Serialises and saves save data
+            livestockManager.SerialiseSaveData();
 
             Console.WriteLine("Hello World!");
         }
