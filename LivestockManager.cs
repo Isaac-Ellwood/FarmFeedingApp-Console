@@ -30,6 +30,8 @@ namespace FarmFeedingApp
                 SaveData saveData = JsonSerializer.Deserialize<SaveData>(jsonString)!;
 
                 // Sets lists with deserialised data
+                foods 
+                foodPrices = saveData.
                 speciesList = saveData.sList;
                 breedsList = saveData.bList;
                 livestockHolders = saveData.lHolders;
