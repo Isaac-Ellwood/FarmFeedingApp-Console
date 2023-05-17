@@ -144,11 +144,11 @@ namespace FarmFeedingApp
                 sList = speciesList,
                 bList = breedsList,
                 lHoldersSpecies = livestockHoldersSpecies,
-                lHoldersBreed,
-                lHoldersID,
-                fQuantityListList,
-                fTypeListList,
-                fDateListList
+                lHoldersBreed = livestockHoldersBreed,
+                lHoldersID = livestockHoldersID,
+                fQuantityListList = foodQuantityListList,
+                fTypeListList = foodTypeListList,
+                fDateListList = datesListList
             };
 
             // Serialises data and saves to \bin\Debug\net5.0
