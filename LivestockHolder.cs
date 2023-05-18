@@ -12,7 +12,7 @@ namespace FarmFeedingApp
         public int species;
         public int breed;
         public string ID;
-        public List<int> foodQuantity = new List<int>();
+        public List<float> foodQuantity = new List<float>();
         public List<int> foodType = new List<int>();
         public List<DateTime> dates = new List<DateTime>();
 
