@@ -19,16 +19,13 @@ namespace FarmFeedingApp
             //Console.WriteLine(livestockManager.GetBreedsList()[sIndex][bIndex]);
 
             // Test data
-            int species = 0;
+            int species = 1;
             int breed = 0;
-            string ID = "0000001";
+            string ID = "0000007";
             LivestockHolder livestockHolder = new LivestockHolder(species, breed, ID);
 
             livestockManager.AddLivestockHolder(livestockHolder);
-            
-            ID = "0000002";
-            LivestockHolder livestockHolder2 = new LivestockHolder(species, breed, ID);
-
+            livestockManager.AddLivestockHolder(livestockHolder);
             livestockManager.AddLivestockHolder(livestockHolder);
 
             // Serialises and saves save data

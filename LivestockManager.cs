@@ -103,7 +103,6 @@ namespace FarmFeedingApp
 
             // Makes lots of lists
             // 2d lists
-
             for (int i = 0; i < saveData.lHoldersID.Count; i++)
             {
                 // Creates livestockholder and adds it to livestock holder list
@@ -111,9 +110,9 @@ namespace FarmFeedingApp
                 AddLivestockHolder(livestockHolder);
 
                 // Pulls livestock data from 2d lists
-                livestockHolders[i].foodQuantity = saveData.fQuantityListList[i];
-                livestockHolders[i].foodType = saveData.fTypeListList[i];
-                livestockHolders[i].dates = saveData.fDateListList[i];
+                livestockHolders[livestockHolders.Count - 1].foodQuantity = saveData.fQuantityListList[i];
+                livestockHolders[livestockHolders.Count - 1].foodType = saveData.fTypeListList[i];
+                livestockHolders[livestockHolders.Count - 1].dates = saveData.fDateListList[i];
             }
 
             // Sets lists with deserialised data
