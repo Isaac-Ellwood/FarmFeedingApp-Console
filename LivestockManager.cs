@@ -28,6 +28,7 @@ namespace FarmFeedingApp
             }
             catch
             {
+                Console.WriteLine("Failed");
                 // Sets lists with default data
                 speciesList = new List<string>()
                 {
@@ -108,11 +109,22 @@ namespace FarmFeedingApp
                 // Creates livestockholder and adds it to livestock holder list
                 LivestockHolder livestockHolder = new LivestockHolder(saveData.lHoldersSpecies[i], saveData.lHoldersBreed[i], saveData.lHoldersID[i]);
                 AddLivestockHolder(livestockHolder);
-
-                // Pulls livestock data from 2d lists
-                livestockHolders[livestockHolders.Count - 1].foodQuantity = saveData.fQuantityListList[i];
-                livestockHolders[livestockHolders.Count - 1].foodType = saveData.fTypeListList[i];
-                livestockHolders[livestockHolders.Count - 1].dates = saveData.fDateListList[i];
+                // Pulls livestock data from 2d lists (prone to fails, so in try catch statements for now)
+                try
+                {
+                    livestockHolders[livestockHolders.Count - 1].foodQuantity = saveData.fQuantityListList[i];
+                }
+                catch { }
+                try
+                {
+                    livestockHolders[livestockHolders.Count - 1].foodType = saveData.fTypeListList[i];
+                }
+                catch{}
+                try
+                {
+                    livestockHolders[livestockHolders.Count - 1].dates = saveData.fDateListList[i];
+                }
+                catch { }
             }
 
             // Sets lists with deserialised data

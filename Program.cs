@@ -21,9 +21,10 @@ namespace FarmFeedingApp
             // Test data
             int species = 1;
             int breed = 0;
-            string ID = "0000007";
+            string ID = "0000020";
             LivestockHolder livestockHolder = new LivestockHolder(species, breed, ID);
 
+            livestockManager.AddLivestockHolder(livestockHolder);
             livestockManager.AddLivestockHolder(livestockHolder);
             livestockManager.AddLivestockHolder(livestockHolder);
             livestockManager.AddLivestockHolder(livestockHolder);
