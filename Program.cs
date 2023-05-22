@@ -24,9 +24,11 @@ namespace FarmFeedingApp
             string ID = "0000020";
             LivestockHolder livestockHolder = new LivestockHolder(species, breed, ID);
 
-            for (int i = 0; i < 1000000000; i++)
+            int count = 1000;
+            for (int i = 0; i < count; i++)
             {
                 livestockManager.AddLivestockHolder(livestockHolder);
+                Console.WriteLine($"Creating livestock {i + 1}/{count}");
             }
 
             // Serialises and saves save data
