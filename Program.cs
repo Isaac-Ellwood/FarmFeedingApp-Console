@@ -24,10 +24,10 @@ namespace FarmFeedingApp
             string ID = "0000020";
             LivestockHolder livestockHolder = new LivestockHolder(species, breed, ID);
 
-            livestockManager.AddLivestockHolder(livestockHolder);
-            livestockManager.AddLivestockHolder(livestockHolder);
-            livestockManager.AddLivestockHolder(livestockHolder);
-            livestockManager.AddLivestockHolder(livestockHolder);
+            for (int i = 0; i < 1000000000; i++)
+            {
+                livestockManager.AddLivestockHolder(livestockHolder);
+            }
 
             // Serialises and saves save data
             livestockManager.SerialiseSaveData();

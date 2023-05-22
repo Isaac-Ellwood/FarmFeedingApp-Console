@@ -28,7 +28,7 @@ namespace FarmFeedingApp
             }
             catch
             {
-                Console.WriteLine("Failed");
+                Console.WriteLine("Failed, Applying default data");
                 // Sets lists with default data
                 speciesList = new List<string>()
                 {
@@ -125,6 +125,7 @@ namespace FarmFeedingApp
                     livestockHolders[livestockHolders.Count - 1].dates = saveData.fDateListList[i];
                 }
                 catch { }
+                Console.WriteLine($"Deserialising {i + 1}/{saveData.lHoldersID.Count}");
             }
 
             // Sets lists with deserialised data
@@ -170,6 +171,7 @@ namespace FarmFeedingApp
                 {
                     datesListList[i][listIndex] = livestockHolders[i].dates[listIndex];
                 }
+                Console.WriteLine($"Serialising {i + 1}/{livestockHolders.Count}");
             }
 
             // Declares new SaveData and sets it
