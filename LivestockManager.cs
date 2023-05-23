@@ -42,20 +42,75 @@ namespace FarmFeedingApp
                     // Cows (dairy) breeds
                     new List<string>()
                     {
-                        "Cow 1",
-                        "Cow 2"
+                        "Ayrshire",
+                        "Brown Swiss",
+                        "Fleckvieh",
+                        "Guernsey",
+                        "Holstein Friesian",
+                        "Jersey",
+                        "Milking Shorthorn"
                     },
                     // Cows (beef) breeds
                     new List<string>()
                     {
-                        "Cow 1",
-                        "Cow 2"
+                        "Angus",
+                        "Aubrac",
+                        "Belgian Blue",
+                        "Blonde D’aquitane",
+                        "Charolais",
+                        "Dexter",
+                        "Belted Galloway",
+                        "Brahman",
+                        "Gelbvieh",
+                        "Hereford",
+                        "Highland",
+                        "Holstein Friesian",
+                        "Limousin",
+                        "Lowline",
+                        "Murray Grey",
+                        "Piedmontese",
+                        "Red Devon",
+                        "Red Poll",
+                        "Salers",
+                        "Santa Gertrudis",
+                        "Shorthorn",
+                        "Simmental",
+                        "South Devon",
+                        "Speckle Park",
+                        "Wagyu",
+                        "Welsh Black"
                     },
                     // Sheep breeds
                     new List<string>()
                     {
-                        "Sheep 1",
-                        "Sheep 2"
+                        "Borderdale",
+                        "Border Leicester",
+                        "Cheviot",
+                        "Coopworth",
+                        "Corriedale",
+                        "Dorper",
+                        "Dorset Down",
+                        "Dorset Horn",
+                        "Drysdale",
+                        "East Friesian",
+                        "English Leicester",
+                        "Finnsheep",
+                        "Hampshire",
+                        "Lincoln",
+                        "Merino",
+                        "Oxford",
+                        "Perendale",
+                        "Poll Dorset",
+                        "Polwarth",
+                        "Romney",
+                        "Ryeland",
+                        "Shropshire",
+                        "Southdown",
+                        "South Dorset",
+                        "South Suffolk",
+                        "Suffolk",
+                        "Texel",
+                        "Wiltshire Horn"
                     }
                 };
             }
