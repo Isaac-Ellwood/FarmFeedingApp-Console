@@ -18,6 +18,16 @@ namespace FarmFeedingApp
             //Console.WriteLine(livestockManager.GetSpeciesList()[sIndex]);
             //Console.WriteLine(livestockManager.GetBreedsList()[sIndex][bIndex]);
 
+            Console.WriteLine("Welcome to the Farm Feeding App!");
+
+            Console.WriteLine("");
+
+            bool flag = true;
+            while(flag == true)
+            {
+
+            };
+
             // Test data
             int species = 1;
             int breed = 0;
@@ -33,8 +43,6 @@ namespace FarmFeedingApp
 
             // Serialises and saves save data
             livestockManager.SerialiseSaveData();
-
-            Console.WriteLine("Hello World!");
         }
     }
 }

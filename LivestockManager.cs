@@ -28,7 +28,7 @@ namespace FarmFeedingApp
             }
             catch
             {
-                Console.WriteLine("Failed, Applying default data");
+                Console.WriteLine("Applying default data");
                 // Sets lists with default data
                 speciesList = new List<string>()
                 {
@@ -112,6 +112,18 @@ namespace FarmFeedingApp
                         "Texel",
                         "Wiltshire Horn"
                     }
+                };
+                foods = new List<string>
+                {
+                    // CHANGE THIS PLACEHOLDER LIST LATER
+                    "Grain (placeholder)",
+                    "Pellets (placeholder)"
+                };
+                foodPrices = new List<float>
+                {
+                    // CHANGE THIS PLACEHOLDER LIST LATER
+                    2.5f,
+                    1.5f
                 };
             }
         }
