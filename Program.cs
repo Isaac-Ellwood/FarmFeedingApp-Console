@@ -18,28 +18,16 @@ namespace FarmFeedingApp
             //Console.WriteLine(livestockManager.GetSpeciesList()[sIndex]);
             //Console.WriteLine(livestockManager.GetBreedsList()[sIndex][bIndex]);
 
-            Console.WriteLine("Welcome to the Farm Feeding App!");
-
-            Console.WriteLine("");
-
-            bool flag = true;
-            while(flag == true)
-            {
-
-            };
-
             // Test data
             int species = 1;
-            int breed = 0;
-            string ID = "0000020";
+            int breed = 4;
+            string ID = $"{species}{breed}#{livestockManager.GetLivestockHoldersLength()}";
             LivestockHolder livestockHolder = new LivestockHolder(species, breed, ID);
-
-            int count = 1000;
-            for (int i = 0; i < count; i++)
-            {
-                livestockManager.AddLivestockHolder(livestockHolder);
-                Console.WriteLine($"Creating livestock {i + 1}/{count}");
-            }
+            livestockHolder.foodQuantity = new List<float>() {100f, 89.56f, 87.66f, 90f , 23f, 78f, 64.9f, 78.9f};
+            livestockHolder.foodType = new List<int>() { 0, 0, 1, 0, 0, 1, 0, 1};
+            livestockHolder.dates = new List<DateTime>() {new DateTime(2023,12,8)};
+            // Adds to livestock holder
+            livestockManager.AddLivestockHolder(livestockHolder);
 
             // Serialises and saves save data
             livestockManager.SerialiseSaveData();

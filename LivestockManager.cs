@@ -128,6 +128,11 @@ namespace FarmFeedingApp
             }
         }
 
+        public int GetLivestockHoldersLength()
+        {
+            return livestockHolders.Count;
+        }
+
         // Adds a livestock holder into livestockHolders list
         public void AddLivestockHolder(LivestockHolder livestockHolder)
         {
@@ -222,22 +227,11 @@ namespace FarmFeedingApp
                 livestockHoldersSpecies.Add(livestockHolders[i].species);
                 livestockHoldersBreed.Add(livestockHolders[i].breed);
                 livestockHoldersID.Add(livestockHolders[i].ID);
+                // 2d lists
+                foodQuantityListList.Add(livestockHolders[i].foodQuantity);
+                foodTypeListList.Add(livestockHolders[i].foodType);
+                datesListList.Add(livestockHolders[i].dates);
 
-                // Adds livestock data to 2d lists
-                for (int listIndex = 0; listIndex < livestockHolders[i].foodQuantity.Count; listIndex++)
-                {
-                    foodQuantityListList[i][listIndex] = livestockHolders[i].foodQuantity[listIndex];
-                }
-
-                for (int listIndex = 0; listIndex < livestockHolders[i].foodType.Count; listIndex++)
-                {
-                    foodTypeListList[i][listIndex] = livestockHolders[i].foodType[listIndex];
-                }
-
-                for (int listIndex = 0; listIndex < livestockHolders[i].dates.Count; listIndex++)
-                {
-                    datesListList[i][listIndex] = livestockHolders[i].dates[listIndex];
-                }
                 Console.WriteLine($"Serialising {i + 1}/{livestockHolders.Count}");
             }
 
