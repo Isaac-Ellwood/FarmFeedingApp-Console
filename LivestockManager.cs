@@ -28,115 +28,122 @@ namespace FarmFeedingApp
             }
             catch
             {
-                Console.WriteLine("Applying default data");
-                // Sets lists with default data
-                speciesList = new List<string>()
-                {
-                    "Cows (dairy)",
-                    "Cows (beef)",
-                    "Sheep"
-                };
-
-                breedsList = new List<List<string>>()
-                {
-                    // Cows (dairy) breeds
-                    new List<string>()
-                    {
-                        "Ayrshire",
-                        "Brown Swiss",
-                        "Fleckvieh",
-                        "Guernsey",
-                        "Holstein Friesian",
-                        "Jersey",
-                        "Milking Shorthorn"
-                    },
-                    // Cows (beef) breeds
-                    new List<string>()
-                    {
-                        "Angus",
-                        "Aubrac",
-                        "Belgian Blue",
-                        "Blonde D’aquitane",
-                        "Charolais",
-                        "Dexter",
-                        "Belted Galloway",
-                        "Brahman",
-                        "Gelbvieh",
-                        "Hereford",
-                        "Highland",
-                        "Holstein Friesian",
-                        "Limousin",
-                        "Lowline",
-                        "Murray Grey",
-                        "Piedmontese",
-                        "Red Devon",
-                        "Red Poll",
-                        "Salers",
-                        "Santa Gertrudis",
-                        "Shorthorn",
-                        "Simmental",
-                        "South Devon",
-                        "Speckle Park",
-                        "Wagyu",
-                        "Welsh Black"
-                    },
-                    // Sheep breeds
-                    new List<string>()
-                    {
-                        "Borderdale",
-                        "Border Leicester",
-                        "Cheviot",
-                        "Coopworth",
-                        "Corriedale",
-                        "Dorper",
-                        "Dorset Down",
-                        "Dorset Horn",
-                        "Drysdale",
-                        "East Friesian",
-                        "English Leicester",
-                        "Finnsheep",
-                        "Hampshire",
-                        "Lincoln",
-                        "Merino",
-                        "Oxford",
-                        "Perendale",
-                        "Poll Dorset",
-                        "Polwarth",
-                        "Romney",
-                        "Ryeland",
-                        "Shropshire",
-                        "Southdown",
-                        "South Dorset",
-                        "South Suffolk",
-                        "Suffolk",
-                        "Texel",
-                        "Wiltshire Horn"
-                    }
-                };
-                foods = new List<string>
-                {
-                    // CHANGE THIS PLACEHOLDER LIST LATER
-                    "Grain (placeholder)",
-                    "Pellets (placeholder)"
-                };
-                foodPrices = new List<float>
-                {
-                    // CHANGE THIS PLACEHOLDER LIST LATER
-                    2.5f,
-                    1.5f
-                };
+                SetDefaultData();
             }
         }
 
-        public int GetLivestockHoldersLength()
+        // Sets livestock manager data to defaults
+        private void SetDefaultData()
         {
-            return livestockHolders.Count;
+            Console.WriteLine("Applying default data");
+            // Sets lists with default data
+            speciesList = new List<string>()
+            {
+                "Cows (dairy)",
+                "Cows (beef)",
+                "Sheep"
+            };
+
+            breedsList = new List<List<string>>()
+            {
+                // Cows (dairy) breeds
+                new List<string>()
+                {
+                    "Ayrshire",
+                    "Brown Swiss",
+                    "Fleckvieh",
+                    "Guernsey",
+                    "Holstein Friesian",
+                    "Jersey",
+                    "Milking Shorthorn"
+                },
+                // Cows (beef) breeds
+                new List<string>()
+                {
+                    "Angus",
+                    "Aubrac",
+                    "Belgian Blue",
+                    "Blonde D’aquitane",
+                    "Charolais",
+                    "Dexter",
+                    "Belted Galloway",
+                    "Brahman",
+                    "Gelbvieh",
+                    "Hereford",
+                    "Highland",
+                    "Holstein Friesian",
+                    "Limousin",
+                    "Lowline",
+                    "Murray Grey",
+                    "Piedmontese",
+                    "Red Devon",
+                    "Red Poll",
+                    "Salers",
+                    "Santa Gertrudis",
+                    "Shorthorn",
+                    "Simmental",
+                    "South Devon",
+                    "Speckle Park",
+                    "Wagyu",
+                    "Welsh Black"
+                },
+                // Sheep breeds
+                new List<string>()
+                {
+                    "Borderdale",
+                    "Border Leicester",
+                    "Cheviot",
+                    "Coopworth",
+                    "Corriedale",
+                    "Dorper",
+                    "Dorset Down",
+                    "Dorset Horn",
+                    "Drysdale",
+                    "East Friesian",
+                    "English Leicester",
+                    "Finnsheep",
+                    "Hampshire",
+                    "Lincoln",
+                    "Merino",
+                    "Oxford",
+                    "Perendale",
+                    "Poll Dorset",
+                    "Polwarth",
+                    "Romney",
+                    "Ryeland",
+                    "Shropshire",
+                    "Southdown",
+                    "South Dorset",
+                    "South Suffolk",
+                    "Suffolk",
+                    "Texel",
+                    "Wiltshire Horn"
+                }
+            };
+            foods = new List<string>
+            {
+                // CHANGE THIS PLACEHOLDER LIST LATER
+                "Grain (placeholder)",
+                "Pellets (placeholder)"
+            };
+            foodPrices = new List<float>
+            {
+                // CHANGE THIS PLACEHOLDER LIST LATER
+                2.5f,
+                1.5f
+            };
         }
 
         // Adds a livestock holder into livestockHolders list
         public void AddLivestockHolder(LivestockHolder livestockHolder)
         {
             livestockHolders.Add(livestockHolder);
+        }
+
+        // Returns livestockHolders length
+        public int GetLivestockHoldersLength()
+        {
+            return livestockHolders.Count;
         }
 
         // Returns species list
@@ -161,6 +168,31 @@ namespace FarmFeedingApp
         public void SetBreedsList(List<List<string>> breedsList)
         {
             this.breedsList = breedsList;
+        }
+
+        // Returns food history as string for the last (time) days
+        public string foodHistory(int animal, int time)
+        {
+            // Creates temp lists
+            List<float> foodQuantityHistory = new List<float>();
+            List<int> foodTypeHistory = new List<int>();
+            List<DateTime> datesHistory = new List<DateTime>();
+
+            // Adds food history to temp lists
+            for (int i = 0; i < time; i++)
+            {
+                foodQuantityHistory.Add(livestockHolders[animal].foodQuantity[livestockHolders[animal].foodQuantity.Count - time + i]);
+                foodTypeHistory.Add(livestockHolders[animal].foodType[livestockHolders[animal].foodType.Count - time + i]);
+                datesHistory.Add(livestockHolders[animal].dates[livestockHolders[animal].dates.Count - time + i]);
+            }
+
+            // Converts lists to string and returns
+            string foodHistory = "";
+            for (int i = 0; i < time; i++)
+            {
+                foodHistory += $"Date: {datesHistory[i]} Type: {this.foods[foodTypeHistory[i]]} Quanitity: {foodQuantityHistory[i]}g\n";
+            }
+            return foodHistory;
         }
 
         // Deserialises and sets save data

@@ -18,6 +18,7 @@ namespace FarmFeedingApp
         public List<int> lHoldersSpecies { get; set; }
         public List<int> lHoldersBreed { get; set; }
         public List<string> lHoldersID { get; set; }
+
         // 2D lists
         public List<List<float>> fQuantityListList { get; set; }
         public List<List<int>> fTypeListList { get; set; }
