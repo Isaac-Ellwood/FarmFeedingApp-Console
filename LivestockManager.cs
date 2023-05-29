@@ -123,8 +123,8 @@ namespace FarmFeedingApp
             foods = new List<string>
             {
                 // CHANGE THIS PLACEHOLDER LIST LATER
-                "Grain (placeholder)",
-                "Pellets (placeholder)"
+                "Grain",
+                "Pellets"
             };
             foodPrices = new List<float>
             {
@@ -178,6 +178,8 @@ namespace FarmFeedingApp
             List<int> foodTypeHistory = new List<int>();
             List<DateTime> datesHistory = new List<DateTime>();
 
+            float totalFoodCost = 0f;
+
             // Adds food history to temp lists
             for (int i = 0; i < time; i++)
             {
@@ -188,10 +190,20 @@ namespace FarmFeedingApp
 
             // Converts lists to string and returns
             string foodHistory = "";
+
+            foodHistory += $"Species: {speciesList[livestockHolders[animal].species]}\n" +
+                $"Breed: {breedsList[livestockHolders[animal].species][livestockHolders[animal].breed]}\n" +
+                $"ID: {livestockHolders[animal].ID}\n";
+
             for (int i = 0; i < time; i++)
             {
-                foodHistory += $"Date: {datesHistory[i]} Type: {this.foods[foodTypeHistory[i]]} Quanitity: {foodQuantityHistory[i]}g\n";
+                foodHistory += $"Date: {datesHistory[i].Day}/{datesHistory[i].Month}/{datesHistory[i].Year} Type: {this.foods[foodTypeHistory[i]]} Quanitity: {foodQuantityHistory[i]}g\n";
+
+                totalFoodCost += (foodQuantityHistory[i] * foodPrices[foodTypeHistory[i]]);
             }
+
+            foodHistory += ($"Total cost: ${totalFoodCost}");
+
             return foodHistory;
         }
 

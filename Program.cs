@@ -26,6 +26,7 @@ namespace FarmFeedingApp
             livestockHolder.foodQuantity = new List<float>() {100f, 89.56f, 87.66f, 90f , 23f, 78f, 64.9f, 78.9f};
             livestockHolder.foodType = new List<int>() { 0, 0, 1, 0, 0, 1, 0, 1};
             livestockHolder.dates = new List<DateTime>() {new DateTime(2023,12,8), new DateTime(2023, 12, 9), new DateTime(2023, 12, 10), new DateTime(2023, 12, 11), new DateTime(2023, 12, 12), new DateTime(2023, 12, 13), new DateTime(2023, 12, 14), new DateTime(2023, 12, 15)};
+            
             // Adds to livestock holder
             livestockManager.AddLivestockHolder(livestockHolder);
 
