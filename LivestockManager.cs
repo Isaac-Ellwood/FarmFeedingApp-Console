@@ -10,6 +10,7 @@ namespace FarmFeedingApp
 {
     class LivestockManager
     {
+
         // Attributes
         List<LivestockHolder> livestockHolders = new List<LivestockHolder>();
 
